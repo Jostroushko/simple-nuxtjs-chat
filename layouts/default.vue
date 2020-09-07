@@ -40,14 +40,6 @@ import {mapState, mapMutations} from "vuex"
 export default {
 data: () => ({
   drawer: true
-  // users: [
-  //   {id: 1, name: 'raddude55'},
-  //   {id: 2, name: 'tvoynosochek'},
-  //   {id: 3, name: 'den777'},
-  //   {id: 4, name: 'wlwpower'},
-  //   {id: 5, name: 'noelle33'},
-  //   {id: 6, name: 'yOUrpRobLeM'}
-  // ]
 }),
 computed: mapState(["user", "users"]),
 methods: {
