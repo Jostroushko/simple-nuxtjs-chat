@@ -5,10 +5,11 @@ const users = require('./user')()
 
 const m = (name, text, id) => ({name, text, id})
 
+
 io.on('connection', socket =>{
     socket.on('userJoined', (data, cb)=> {
         if (!data.name || !data.room) {
-            return cb('no correcto mi amigo')
+            return cb('ошибка комнаты')
         }
 
         socket.join(data.room)
@@ -17,20 +18,20 @@ io.on('connection', socket =>{
         users.add({
             id: socket.id,
             name: data.name,
-            room: data.room
+            room: data.room,
         })
 
         cb({userId: socket.id})
         io.to(data.room).emit('updateUsers', users.getByRoom(data.room))
-        socket.emit('newMessage', m('admin', `bruh ${data.name} nice to c ya`))
+        socket.emit('newMessage', m('admin', `пользователь ${data.name} добро пожаловать в чат`))
         socket.broadcast
             .to(data.room)
-            .emit('newMessage', m('admin', `dude ${data.name} is here hah cool party`))
+            .emit('newMessage', m('admin', `пользователь ${data.name} присоединился к нам`))
     })
 
     socket.on('createMessage', (data, cb) => {
         if (!data.text) {
-            return cb('dis is empty like muh soul')
+            return cb('пусто')
         }
         const user = users.get(data.id)
         if (user) {
@@ -44,7 +45,7 @@ io.on('connection', socket =>{
             io.to(user.room).emit('updateUsers', users.getByRoom(user.room))
              io.to(user.room).emit(
                  'newMessage',
-                 m('admin', `dude ${user.name} juss left us. sad`)
+                 m('admin', `пользователь ${user.name} покинул чат`)
              )
          }
          cb()
@@ -55,7 +56,7 @@ io.on('connection', socket =>{
             io.to(user.room).emit('updateUsers', users.getByRoom(user.room))
             io.to(user.room).emit(
                 'newMessage',
-                m('admin', `dude ${user.name} juss left us. sad`)
+                m('admin', `пользователь ${user.name} покинул чат`)
             )
         }
      })
