@@ -79,6 +79,6 @@ module.exports = {
 export default {
   target: 'static', // default is 'server'
   router: {
-    base: '/jostroushko.github.io/simple-nuxtjs-chat/'
+    base: '/'
   }
 }
