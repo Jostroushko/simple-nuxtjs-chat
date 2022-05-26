@@ -2,7 +2,7 @@
   <v-app dark>
     <v-navigation-drawer app v-model="drawer" mobile-break-point="650">
       <v-list subheader>
-      <v-subheader>Ya squad</v-subheader>
+      <v-subheader>Пользователи онлайн</v-subheader>
 
       <v-list-item
         v-for="u in users"
@@ -25,7 +25,7 @@
       <v-btn icon @click="exit">
       <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
-      <v-toolbar-title>room {{user.room}}</v-toolbar-title>
+      <v-toolbar-title>комната {{user.room}}</v-toolbar-title>
     </v-app-bar>
     <v-content>
       <div style="height: 100%">

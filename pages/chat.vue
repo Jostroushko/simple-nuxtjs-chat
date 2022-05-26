@@ -26,7 +26,7 @@ export default {
     middleware: ["chat"],
     head() {
         return {
-            title: `room ${this.user.room}`
+            title: `комната: ${this.user.room}`
         }
     },
     components:{Message, ChatForm},

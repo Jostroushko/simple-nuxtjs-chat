@@ -3,7 +3,7 @@
     <v-flex xs12 sm8>
       <v-card min-width="400px">
         <v-card-title>
-          <h1>de chat muh BOI</h1>
+          <h1>Чат</h1>
         </v-card-title>
         <v-card-text>
           <v-form ref="form" v-model="valid" :lazy-validation="lazy">
@@ -11,14 +11,14 @@
               v-model="name"
               :counter="16"
               :rules="nameRules"
-              label="whatcha name dude"
+              label="Введите Ваш никнейм"
               required
             ></v-text-field>
 
             <v-text-field
               v-model="room"
               :rules="roomRules"
-              label="tell me wat de room u want"
+              label="Введите номер комнаты"
               required
             ></v-text-field>
 
@@ -27,7 +27,7 @@
               color="primary"
               class="mr-4"
               @click="submit"
-            >push dat den u ready muh boi</v-btn>
+            >Войти в комнату</v-btn>
           </v-form>
         </v-card-text>
       </v-card>
@@ -40,7 +40,7 @@
   export default {
     layout: "empty",
     head: {
-      title: "cool chat dude"
+      title: "Чат"
     },
     sockets: {
     connect: function() {
@@ -51,12 +51,12 @@
       valid: true,
       name: '',
       nameRules: [
-        v => !!v || 'dude rly i need ya name',
-        v => (v && v.length <= 16) || 'ya name too big !! cool but give meh only 16 symbs oke? bealive inya',
+        v => !!v || 'пустое поле',
+        v => (v && v.length <= 16) || 'имя слишком большое. имя не может превышать 16 символов',
       ],
       room: '',
       roomRules: [
-        v => !!v || 'i cant give ya watchawant withah room toldcha'
+        v => !!v || 'ошибка ввода комнаты'
       ],
       lazy: false,
     }),
