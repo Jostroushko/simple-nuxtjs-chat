@@ -16,13 +16,13 @@
     "express": "^4.16.4",
     "nuxt": "^2.0.0",
     "socket.io": "^2.3.0",
-    "vue-socket.io": "^3.0.9"
-  },
-  "devDependencies": {
+    "vue-socket.io": "^3.0.9",
     "@nuxtjs/vuetify": "^1.0.0",
-    "nodemon": "^1.18.9",
-    "push-dir": "^0.4.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "push-dir": "^0.4.1"
   }
 }
